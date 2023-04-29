@@ -4,7 +4,7 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import Navbar from "./components/Nav/Navbar";
 
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import Classes from "./Pages/Classes";
 import Price from "./Pages/Price";
@@ -25,34 +25,36 @@ import About from "./Pages/About";
 function App() {
   return (
     <>
-      <AuthContextProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="classes" element={<Classes />} />
-          <Route path="pricing" element={<Price />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="about" element={<About />} />
+      <BrowserRouter>
+        <AuthContextProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" Component={<Home />} />
+            <Route path="contact" Component={<Contact />} />
+            <Route path="login" Component={<Login />} />
+            <Route path="signup" Component={<SignUp />} />
+            <Route path="classes" Component={<Classes />} />
+            <Route path="pricing" Component={<Price />} />
+            <Route path="blog" Component={<Blog />} />
+            <Route path="about" Component={<About />} />
 
-          <Route path="schedule" element={<Schedule />}>
-            <Route path="monday" element={<Monday />} />
-            <Route path="tuesday" element={<Tuesday />} />
-            <Route path="wednesday" element={<Wednesday />} />
-            <Route path="thursday" element={<Thursday />} />
-            <Route path="friday" element={<Friday />} />
-            <Route path="saturday" element={<Saturday />} />
-            <Route path="sunday" element={<Sunday />} />
-          </Route>
+            <Route path="schedule" Component={<Schedule />}>
+              <Route path="monday" Component={<Monday />} />
+              <Route path="tuesday" Component={<Tuesday />} />
+              <Route path="wednesday" Component={<Wednesday />} />
+              <Route path="thursday" Component={<Thursday />} />
+              <Route path="friday" Component={<Friday />} />
+              <Route path="saturday" Component={<Saturday />} />
+              <Route path="sunday" Component={<Sunday />} />
+            </Route>
 
-          <Route path="gallery" element={<Gallery />}>
-            <Route path="page-1" element={<GalleryPage1 />} />
-            <Route path="page-2" element={<GalleryPage2 />} />
-          </Route>
-        </Routes>
-      </AuthContextProvider>
+            <Route path="gallery" Component={<Gallery />}>
+              <Route path="page-1" Component={<GalleryPage1 />} />
+              <Route path="page-2" Component={<GalleryPage2 />} />
+            </Route>
+          </Routes>
+        </AuthContextProvider>
+      </BrowserRouter>
     </>
   );
 }
