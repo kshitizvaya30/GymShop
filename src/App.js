@@ -4,7 +4,7 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import Navbar from "./components/Nav/Navbar";
 
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import Classes from "./Pages/Classes";
 import Price from "./Pages/Price";
@@ -25,10 +25,11 @@ import About from "./Pages/About";
 function App() {
   return (
     <>
+    <BrowserRouter>
       <AuthContextProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
@@ -37,7 +38,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
 
-          <Route path="/schedule" element={<Schedule />}>
+          <Route path="/schedule/*" element={<Schedule />}>
             <Route path="monday" element={<Monday />} />
             <Route path="tuesday" element={<Tuesday />} />
             <Route path="wednesday" element={<Wednesday />} />
@@ -47,12 +48,13 @@ function App() {
             <Route path="sunday" element={<Sunday />} />
           </Route>
 
-          <Route path="/gallery" element={<Gallery />}>
+          <Route path="/gallery/*" element={<Gallery />}>
             <Route path="page-1" element={<GalleryPage1 />} />
             <Route path="page-2" element={<GalleryPage2 />} />
           </Route>
         </Routes>
       </AuthContextProvider>
+      </BrowserRouter>
     </>
   );
 }
