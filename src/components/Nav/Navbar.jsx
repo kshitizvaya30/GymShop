@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logo from "../../images/logo/logo.svg";
 import NavList from "../Nav/NavList";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LogoSide from "../../images/logo/logo-footer.svg";
 import SideImg1 from "../../images/sidebar/1.jpg";
 import SideImg2 from "../../images/sidebar/2.jpg";
@@ -15,6 +15,7 @@ function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const [hamburger, setHamburger] = useState(false);
+  const navigate = useNavigate();
 
   const joinSpin = () => {
     setSpin(true);
@@ -90,72 +91,89 @@ function Navbar() {
               <ul className="text-center flex flex-col gap-10 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
                 <li onClick={hamburgerMenu}>
                   <a
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                      navigate("/");
+                    }}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    href="/#home"
+                    href=" "
                   >
                     Home
                   </a>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                      navigate("/about");
+                    }}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    to="/about"
                   >
                     About
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                      navigate("/schedule/monday");
+                    }}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    to="/schedule/monday"
+                    // to="/schedule/monday"
                   >
                     Schedule
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                      navigate("/gallery/page-1");
+                    }}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    to="/gallery/page-1"
+                    // to="/gallery/page-1"
                   >
                     Gallery
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                      navigate("/blog");
+                    }}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    to="/blog"
+                    // to="/blog"
                   >
                     Blog
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                      navigate("/contact");
+                    }}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    to="/contact"
+                    // to="/contact"
                   >
                     Contact
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() =>{ window.scrollTo(0, 0); navigate('/pricing')}}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    to="/pricing"
+                    // to="/pricing"
                   >
                     Pricing
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() =>{ window.scrollTo(0, 0); navigate('classes')}}
                     className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
-                    to="/classes"
+                    // to="/classes"
                   >
                     Classes
                   </Link>
